@@ -1,0 +1,5 @@
+{
+  "name": "Student Management MVP",
+  "description": "A fullstack MVP for managing student records using React, Express, and SQLite.",
+  "requestFramePermissions": []
+}
