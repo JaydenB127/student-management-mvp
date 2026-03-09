@@ -1,148 +1,127 @@
-# 🎓 Hệ Thống Quản Lý Sinh Viên
+# 🎓 Student Management MVP
 
-Ứng dụng web full-stack để quản lý thông tin sinh viên, xây dựng với React, Express và SQLite. Được tạo ban đầu từ [Google AI Studio](https://aistudio.google.com).
-
-![Node.js](https://img.shields.io/badge/Node.js-v18+-339933?logo=node.js&logoColor=white)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite&logoColor=white)
-
-## ✨ Tính Năng
-
-- 📋 Xem danh sách sinh viên dưới dạng bảng trực quan
-- ➕ Thêm sinh viên mới với kiểm tra dữ liệu đầu vào
-- ✏️ Chỉnh sửa thông tin sinh viên
-- 🗑️ Xóa hồ sơ sinh viên
-- 🎨 Huy hiệu GPA đổi màu theo mức điểm (xanh / vàng / đỏ)
-- ⚡ Cơ sở dữ liệu SQLite nội bộ — không cần kết nối internet
-
-## 🛠️ Công Nghệ Sử Dụng
-
-| Tầng | Công nghệ |
-|---|---|
-| Frontend | React 19, Vite, Tailwind CSS, React Router |
-| Backend | Express.js (Node.js) |
-| Cơ sở dữ liệu | SQLite via `better-sqlite3` |
-| Ngôn ngữ | TypeScript |
-| AI (tùy chọn) | Google Gemini API (`@google/genai`) |
-
-## 📁 Cấu Trúc Thư Mục
-
-```
-student-management-mvp/
-├── src/
-│   ├── components/
-│   │   ├── StudentList.tsx   # Bảng hiển thị danh sách sinh viên
-│   │   └── StudentForm.tsx   # Form thêm / chỉnh sửa sinh viên
-│   ├── App.tsx               # Component gốc & cấu hình routing
-│   ├── db.ts                 # Kết nối SQLite & khởi tạo schema
-│   ├── types.ts              # Định nghĩa TypeScript interfaces
-│   ├── main.tsx              # Điểm khởi đầu React
-│   └── index.css             # CSS toàn cục
-├── server.ts                 # Express server + các API route
-├── seed.ts                   # Script tạo dữ liệu mẫu
-├── students.db               # File cơ sở dữ liệu SQLite
-├── vite.config.ts
-├── tsconfig.json
-└── package.json
-```
-
-## 🚀 Hướng Dẫn Cài Đặt
-
-### Yêu Cầu
-
-- [Node.js](https://nodejs.org) phiên bản 18 trở lên
-
-### Các Bước Thực Hiện
-
-1. **Clone repository về máy**
-   ```bash
-   git clone https://github.com/ten-cua-ban/student-management-mvp.git
-   cd student-management-mvp
-   ```
-
-2. **Cài đặt các thư viện cần thiết**
-   ```bash
-   npm install
-   ```
-
-3. **Tạo file biến môi trường**
-
-   Tạo file `.env.local` ở thư mục gốc của project:
-   ```env
-   GEMINI_API_KEY=your_gemini_api_key_here
-   APP_URL=http://localhost:3000
-   ```
-
-   > 🔑 Lấy Gemini API Key miễn phí tại [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
-
-4. **(Tùy chọn) Tạo dữ liệu mẫu**
-   ```bash
-   npm run seed
-   ```
-
-5. **Khởi động server**
-   ```bash
-   npm run dev
-   ```
-
-6. Mở trình duyệt và truy cập **[http://localhost:3000](http://localhost:3000)**
-
-## 📦 Các Lệnh Có Sẵn
-
-| Lệnh | Mô tả |
-|---|---|
-| `npm run dev` | Khởi động server phát triển |
-| `npm run build` | Build cho môi trường production |
-| `npm run preview` | Xem trước bản build production |
-| `npm run seed` | Thêm dữ liệu sinh viên mẫu vào database |
-| `npm run lint` | Kiểm tra lỗi TypeScript |
-
-## 🗄️ Cấu Trúc Database
-
-```sql
-CREATE TABLE students (
-  student_id  TEXT,
-  name        TEXT NOT NULL,
-  birth_year  INTEGER,
-  major       TEXT,
-  gpa         REAL
-);
-```
-
-## 🔌 API Endpoints
-
-| Phương thức | Endpoint | Mô tả |
-|---|---|---|
-| GET | `/api/students` | Lấy danh sách tất cả sinh viên |
-| POST | `/api/students` | Thêm sinh viên mới |
-| PUT | `/api/students/:id` | Cập nhật thông tin sinh viên theo ID |
-| DELETE | `/api/students/:id` | Xóa sinh viên theo ID |
-
-## ⚠️ Xử Lý Lỗi Thường Gặp
-
-**Lỗi `SqliteError: database disk image is malformed`**
-
-File `students.db` bị hỏng. Xóa file đó đi và khởi động lại server — database sẽ được tạo lại tự động:
-```bash
-# Windows
-del students.db
-
-# macOS / Linux
-rm students.db
-```
-Sau đó chạy `npm run seed` để thêm lại dữ liệu mẫu.
+Ứng dụng quản lý sinh viên đơn giản, xây dựng với React + TypeScript ở frontend và Express + SQLite ở backend — chạy trên một server duy nhất.
 
 ---
 
-**Lỗi `npm is not recognized`**
+## 🛠 Tech Stack
 
-Node.js chưa được cài đặt. Tải tại [nodejs.org](https://nodejs.org) hoặc cài qua winget:
-```powershell
-winget install OpenJS.NodeJS.LTS
+| Thành phần | Công nghệ |
+|---|---|
+| Frontend | React 19, TypeScript, Tailwind CSS v4, React Router v7 |
+| Backend | Express.js, Node.js |
+| Database | SQLite (`better-sqlite3`) |
+| Build Tool | Vite 6 |
+| Runtime | `tsx` (TypeScript trực tiếp) |
+
+---
+
+## ✨ Tính năng
+
+- **Xem danh sách sinh viên** — hiển thị dạng bảng với mã SV, tên, ngành học và GPA
+- **Thêm sinh viên mới** — form nhập liệu có validation
+- **Chỉnh sửa thông tin** — cập nhật tên, ngành, năm sinh, GPA
+- **Xoá sinh viên** — xác nhận trước khi xoá
+- **GPA badge màu** — xanh (≥3.5), vàng (≥2.5), đỏ (<2.5)
+
+---
+
+## 🚀 Cài đặt & Chạy
+
+### 1. Cài dependencies
+
+```bash
+npm install
 ```
-Sau khi cài xong, **đóng và mở lại terminal** rồi thử lại.
 
-## 📄 Giấy Phép
+### 2. Tạo file `.env`
 
-Dự án này sử dụng giấy phép Apache 2.0.
+```bash
+cp .env.example .env
+```
+
+Điền các biến cần thiết vào `.env`:
+
+```env
+GEMINI_API_KEY="your_api_key_here"
+APP_URL="http://localhost:3000"
+```
+
+### 3. (Tuỳ chọn) Seed dữ liệu mẫu
+
+```bash
+npm run seed
+```
+
+Lệnh này sẽ thêm 5 sinh viên mẫu vào database.
+
+### 4. Chạy server
+
+```bash
+npm run dev
+```
+
+Mở trình duyệt tại **http://localhost:3000**
+
+---
+
+## 📁 Cấu trúc thư mục
+
+```
+├── src/
+│   ├── components/
+│   │   ├── StudentList.tsx   # Trang danh sách sinh viên
+│   │   └── StudentForm.tsx   # Form thêm / chỉnh sửa
+│   ├── App.tsx               # Router chính
+│   ├── db.ts                 # Kết nối SQLite & khởi tạo schema
+│   ├── types.ts              # TypeScript interfaces
+│   └── main.tsx              # Entry point React
+├── server.ts                 # Express server + API routes
+├── seed.ts                   # Script seed dữ liệu mẫu
+├── students.db               # File SQLite (tự tạo khi chạy)
+├── .env.example              # Mẫu biến môi trường
+└── package.json
+```
+
+---
+
+## 🔌 API Endpoints
+
+| Method | Endpoint | Mô tả |
+|---|---|---|
+| `GET` | `/api/students` | Lấy danh sách tất cả sinh viên |
+| `POST` | `/api/students` | Thêm sinh viên mới |
+| `PUT` | `/api/students/:id` | Cập nhật thông tin sinh viên |
+| `DELETE` | `/api/students/:id` | Xoá sinh viên |
+
+### Cấu trúc dữ liệu sinh viên
+
+```json
+{
+  "student_id": "SV001",
+  "name": "Alice Turing",
+  "birth_year": 2003,
+  "major": "Computer Science",
+  "gpa": 3.9
+}
+```
+
+---
+
+## 📦 Scripts
+
+| Lệnh | Mô tả |
+|---|---|
+| `npm run dev` | Chạy server phát triển (Express + Vite HMR) |
+| `npm run build` | Build frontend cho production |
+| `npm run seed` | Seed dữ liệu mẫu vào database |
+| `npm run lint` | Kiểm tra TypeScript |
+| `npm run clean` | Xoá thư mục `dist` |
+
+---
+
+## ⚠️ Lưu ý
+
+- File `students.db` được tạo tự động khi server khởi động lần đầu.
+- `student_id` là khoá chính — **không thể thay đổi** sau khi đã tạo.
+- GPA hợp lệ trong khoảng **0.0 – 4.0**.
