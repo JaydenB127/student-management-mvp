@@ -1,10 +1,10 @@
-# 🎓 Student Management MVP
+#  Student Management MVP
 
 Ứng dụng quản lý sinh viên đơn giản, xây dựng với React + TypeScript ở frontend và Express + SQLite ở backend — chạy trên một server duy nhất.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Thành phần | Công nghệ |
 |---|---|
@@ -16,7 +16,7 @@
 
 ---
 
-## ✨ Tính năng
+##  Tính năng
 
 - **Xem danh sách sinh viên** — hiển thị dạng bảng với mã SV, tên, ngành học và GPA
 - **Thêm sinh viên mới** — form nhập liệu có validation
@@ -26,7 +26,7 @@
 
 ---
 
-## 🚀 Cài đặt & Chạy
+##  Cài đặt & Chạy
 
 ### 1. Cài dependencies
 
@@ -65,7 +65,7 @@ Mở trình duyệt tại **http://localhost:3000**
 
 ---
 
-## 📁 Cấu trúc thư mục
+##  Cấu trúc thư mục
 
 ```
 ├── src/
@@ -108,7 +108,7 @@ Mở trình duyệt tại **http://localhost:3000**
 
 ---
 
-## 📦 Scripts
+##  Scripts
 
 | Lệnh | Mô tả |
 |---|---|
@@ -120,7 +120,7 @@ Mở trình duyệt tại **http://localhost:3000**
 
 ---
 
-## ⚠️ Lưu ý
+##  Lưu ý
 
 - File `students.db` được tạo tự động khi server khởi động lần đầu.
 - `student_id` là khoá chính — **không thể thay đổi** sau khi đã tạo.
