@@ -85,7 +85,7 @@ Mở trình duyệt tại **http://localhost:3000**
 
 ---
 
-## 🔌 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Mô tả |
 |---|---|---|
