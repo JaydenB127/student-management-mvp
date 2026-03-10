@@ -43,7 +43,7 @@ cp .env.example .env
 Điền các biến cần thiết vào `.env`:
 
 ```env
-GEMINI_API_KEY="your_api_key_here"
+GEMINI_API_KEY="your_api_key_here" (Lấy API từ google AI studio)
 APP_URL="http://localhost:3000"
 ```
 
